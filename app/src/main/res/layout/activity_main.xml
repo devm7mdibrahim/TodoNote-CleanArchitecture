@@ -8,4 +8,4 @@
     android:id="@+id/fragment_container"
     app:defaultNavHost="true"
     app:navGraph="@navigation/main_graph"
-    tools:context=".ui.MainActivity" />
+    tools:context=".features.ui.MainActivity" />

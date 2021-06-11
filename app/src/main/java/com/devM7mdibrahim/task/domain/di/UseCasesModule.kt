@@ -1,35 +1,34 @@
 package com.devM7mdibrahim.task.domain.di
 
-import com.devM7mdibrahim.task.domain.interactors.AddToDoUseCase
-import com.devM7mdibrahim.task.domain.interactors.DeleteToDoUseCase
-import com.devM7mdibrahim.task.domain.interactors.GetAllToDosUseCase
-import com.devM7mdibrahim.task.domain.interactors.UpdateToDoUseCase
-import com.devM7mdibrahim.task.domain.repository.ToDoRepository
+import com.devM7mdibrahim.task.domain.interactors.AddTodoUseCase
+import com.devM7mdibrahim.task.domain.interactors.DeleteTodoUseCase
+import com.devM7mdibrahim.task.domain.interactors.GetAllTodosUseCase
+import com.devM7mdibrahim.task.domain.interactors.UpdateTodoUseCase
+import com.devM7mdibrahim.task.domain.repository.TodoRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import javax.inject.Inject
-import javax.inject.Singleton
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.scopes.ViewModelScoped
 
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ViewModelComponent::class)
 object UseCasesModule {
 
-    @Singleton
+    @ViewModelScoped
     @Provides
-    fun provideAddToDoUseCase(repository: ToDoRepository): AddToDoUseCase = AddToDoUseCase(repository)
+    fun provideAddTodoUseCase(repository: TodoRepository): AddTodoUseCase = AddTodoUseCase(repository)
 
-    @Singleton
+    @ViewModelScoped
     @Provides
-    fun provideDeleteToDoUseCase(repository: ToDoRepository): DeleteToDoUseCase = DeleteToDoUseCase(repository)
+    fun provideDeleteTodoUseCase(repository: TodoRepository): DeleteTodoUseCase = DeleteTodoUseCase(repository)
 
-    @Singleton
+    @ViewModelScoped
     @Provides
-    fun provideUpdateToDoUseCase(repository: ToDoRepository): UpdateToDoUseCase = UpdateToDoUseCase(repository)
+    fun provideUpdateTodoUseCase(repository: TodoRepository): UpdateTodoUseCase = UpdateTodoUseCase(repository)
 
-    @Singleton
+    @ViewModelScoped
     @Provides
-    fun provideGetAllToDosUseCase(repository: ToDoRepository): GetAllToDosUseCase = GetAllToDosUseCase(repository)
+    fun provideGetAllTodosUseCase(repository: TodoRepository): GetAllTodosUseCase = GetAllTodosUseCase(repository)
 }

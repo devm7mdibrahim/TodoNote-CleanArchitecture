@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.room.Room
 import com.devM7mdibrahim.task.data.cache.AppDatabase
 import com.devM7mdibrahim.task.data.cache.DATABASE_NAME
-import com.devM7mdibrahim.task.data.cache.dao.ToDoDao
+import com.devM7mdibrahim.task.data.cache.dao.TodoDao
 import com.devM7mdibrahim.task.data.cache.datasource.LocalDataSourceImpl
-import com.devM7mdibrahim.task.data.cache.mapper.CachedToDoMapper
+import com.devM7mdibrahim.task.data.cache.mapper.CachedTodoMapper
 import com.devM7mdibrahim.task.data.datasource.LocalDataSource
 import dagger.Module
 import dagger.Provides
@@ -29,12 +29,12 @@ object LocalModule {
 
     @Singleton
     @Provides
-    fun provideToDODao(database: AppDatabase): ToDoDao = database.toDoDao()
+    fun provideTodoDao(database: AppDatabase): TodoDao = database.toDoDao()
 
 
     @Singleton
     @Provides
-    fun provideLocalDataSource(dao: ToDoDao, mapper: CachedToDoMapper): LocalDataSource =
+    fun provideLocalDataSource(dao: TodoDao, mapper: CachedTodoMapper): LocalDataSource =
         LocalDataSourceImpl(dao, mapper)
 
 }
